@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">	
+
+
+<!-- 
+using setter injection  	
+<bean id="emp1" class="com.cg.sp.beans.Employee">
+	<property name="FirstName" value="kuldeep"></property>  it will call setter method and Spring IOC container do automatic conversions
+	<property name="LasttName" value="singh"></property>
+	<property name="Age" value="21"></property>
+	</bean>
+
+-->
+
+
+
+
+<!-- Using constructor injection 
+<bean id="emp1" class="com.cg.sp.beans.Employee">
+<constructor-arg index="0" value="kuldeep"></constructor-arg> it will create object
+<constructor-arg index="1" value="singh"></constructor-arg>
+<constructor-arg index="0" value="21"></constructor-arg>
+</bean>
+-->
+<!--  
+<bean id="emp1" class="com.cg.sp.beans.Employee">
+<constructor-arg type="int" value="22"></constructor-arg>
+<constructor-arg type="String" value="singh"></constructor-arg>
+ <property name="skills">
+<list>
+ <value>Java</value>
+ <value>Cpp</value>
+ <value>HTML</value>
+</list>
+ </property>
+
+</bean>
+-->
+<!--  
+<bean id="cred" class="com.cg.sp.beans.UserCred">
+ <property name="credentials">
+<map>
+ <entry key="user1" value="user123@"></entry>
+  <entry key="user2" value="user23@"></entry>
+  </map>
+ </property>
+
+</bean>
+-->
+<bean id="emp1" class="com.cg.sp.beans.Employee" autowire="constructor" init-method="m1" destroy-method="m2">
+<property name="firstName" value="A"></property>
+<property name="lasttName" value="B"></property>
+<property name="age" value="21"></property>
+</bean>
+
+<bean class="com.cg.sp.beans.Dept" id="d1">
+<property name="deptNo" value="1"></property>
+<property name="deptName" value="admin"></property>
+</bean>
+
+<bean id="emp2" class="com.cg.sp.beans.Employee">
+<property name="firstName" value="W"></property>
+<property name="lasttName" value="Z"></property>
+<property name="age" value="22"></property>
+<property name="dept" ref="d1"></property>
+</bean>
+
+<bean class="com.cg.sp.beans.Dept" id="d2">
+<property name="deptNo" value="2"></property>
+<property name="deptName" value="finance"></property>
+</bean>
+
+
+</beans>
